@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="peter.phalen.archives.NewsFeedFragment">
+
+
+    <WebView
+        android:id="@+id/newsfeedview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="NEWSFEED"
+        android:textSize="40dp"
+        android:visibility="visible"
+        android:textStyle="bold"
+        android:layout_centerInParent="true">
+
+
+    </WebView>
+
+</android.support.v4.widget.SwipeRefreshLayout>

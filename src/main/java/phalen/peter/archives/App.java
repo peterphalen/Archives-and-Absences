@@ -11,7 +11,7 @@ public class App extends Application {
 
     public void onCreate() {
         super.onCreate();
-        Parse.initialize(this, "******", "******");
+        Parse.initialize(this, "*****", "******");
         ParseInstallation.getCurrentInstallation().saveInBackground();
     }
 

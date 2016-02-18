@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.provider.Settings;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -76,14 +77,14 @@ public class MainActivity extends AppCompatActivity {
             NoConnectionAlertDialog.setMessage("You need a network connection to use this application. Please turn on mobile network or Wi-Fi in Settings.");
 
             // Setting Icon to Dialog
-            // alertDialog.setIcon(R.drawable.ic_launcher);
+            NoConnectionAlertDialog.setIcon(R.mipmap.ic_launcher);
 
             // Setting Positive "Yes" Button
             NoConnectionAlertDialog.setPositiveButton("Settings",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
 
-                            // Activity transfer to location settings
+                            // Activity transfer to connectivity settings
                             startActivity(new Intent(Settings.ACTION_WIRELESS_SETTINGS));
                         }
                     });
@@ -99,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
             // Showing Alert Message
             NoConnectionAlertDialog.show();
-            //////////ENDAlertDialog prompting location settings
+            //////////ENDAlertDialog prompting connectivity settings
 
         }
 
@@ -114,6 +115,12 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
     }
 
+    public void help(View view) {
+        String url = "http://www.theguardian.com/us-news/ng-interactive/2015/jun/01/the-counted-police-killings-us-database";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
+    }
 
     private void setupTabIcons() {
         TextView tabNews = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);

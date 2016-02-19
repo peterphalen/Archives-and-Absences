@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void help(View view) {
-        String url = "http://www.theguardian.com/us-news/ng-interactive/2015/jun/01/the-counted-police-killings-us-database";
+        String url = "http://www.theguardian.com/thecounted";
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(url));
         startActivity(i);

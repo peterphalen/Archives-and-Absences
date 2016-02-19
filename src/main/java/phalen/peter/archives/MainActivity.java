@@ -108,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void refresh(View view) {
-        viewPager.setAdapter(null);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new NewsFeedFragment("javascript:window.location.reload( true )"), "NEWSFEED");
         adapter.addFragment(new MapFragment("javascript:window.location.reload( true )"), "MAP");
@@ -126,12 +125,14 @@ public class MainActivity extends AppCompatActivity {
         TextView tabNews = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
         tabNews.setText("Newsfeed");
         tabNews.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_newsfeed, 0, 0);
+        tabNews.setCompoundDrawablePadding(-12);
         tabLayout.getTabAt(0).setCustomView(tabNews);
 
 
         TextView tabMap = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
         tabMap.setText("Map");
         tabMap.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_map, 0, 0);
+        tabMap.setCompoundDrawablePadding(-12);
         tabLayout.getTabAt(1).setCustomView(tabMap);
 
     }

@@ -7,6 +7,8 @@ import android.view.MotionEvent;
 /**
  * Created by hegazy on 2/13/15.
  */
+
+// this class is used to handle toggling between webviews
 public class CustomViewPager extends android.support.v4.view.ViewPager{
     private boolean enabled;
 

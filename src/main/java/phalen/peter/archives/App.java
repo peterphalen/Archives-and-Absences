@@ -1,20 +1,21 @@
 package phalen.peter.archives;
 
 import android.app.Application;
+import com.onesignal.OneSignal;
 
-import com.parse.Parse;
-import com.parse.ParseInstallation;
+
 
 //we call the overarching application class for Parse
 public class App extends Application {
 
+    @Override
     public void onCreate() {
         super.onCreate();
+        OneSignal.startInit(this).init();
 
-        //API KEY, then CLIENT KEY
-        //also must be defined in manifest
-        Parse.initialize(this, "*****", "******");
-        ParseInstallation.getCurrentInstallation().saveInBackground();
+        // Call syncHashedEmail anywhere in your app if you have the user's email.
+        // This improves the effectiveness of OneSignal's "best-time" notification scheduling feature.
+        // OneSignal.syncHashedEmail(userEmail);
     }
 
 

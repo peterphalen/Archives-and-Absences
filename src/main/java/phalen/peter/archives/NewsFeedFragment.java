@@ -6,6 +6,7 @@ package phalen.peter.archives;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -22,7 +23,7 @@ public class NewsFeedFragment extends Fragment {
     private WebView mWebView;
     private boolean mIsWebViewAvailable;
     ProgressDialog progress;
-    private String mUrl = "*****";
+    private String mUrl = "https://joshbegley.com/archives/feed";
 
     /**
      * Creates a new fragment which loads the supplied url as soon as it can
@@ -48,16 +49,16 @@ public class NewsFeedFragment extends Fragment {
         mWebView = new WebView(getActivity());
         View myFragmentView = inflater.inflate(R.layout.news_feed_fragment, container, false);
         progress = ProgressDialog.show(getActivity(), "Loading", "Please wait...", true);
-
-
         mWebView.setWebViewClient(new InnerWebViewClient() {
-            public void onPageFinished(WebView view, String url) {
-                if (progress != null) {
+
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                if ( progress != null  ) {
                     progress.dismiss();
                 }
-                super.onPageFinished(view, url);
+                super.onPageStarted(view, url, favicon);
 
             }
+
 
 
         }); // forces it to open in app

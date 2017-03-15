@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
     public void help(View view) {
 
         //take us to the Guardian Website
-        String url = "http://www.theguardian.com/thecounted";
+        String url = "https://www.washingtonpost.com/graphics/national/police-shootings-2017/";
         //android OS is smart enough to figure out which browser to open, so
         //a generic "ACTION_VIEW" call is used
         Intent i = new Intent(Intent.ACTION_VIEW);
@@ -162,8 +162,8 @@ public class MainActivity extends AppCompatActivity {
     //this method sets up our custom viewpager
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new NewsFeedFragment("*****"), "NEWSFEED"); //custom website URLs
-        adapter.addFragment(new MapFragment("*****"), "MAP");
+        adapter.addFragment(new NewsFeedFragment("https://joshbegley.com/archives/feed"), "NEWSFEED"); //Custom website URLs
+        adapter.addFragment(new MapFragment("https://joshbegley.com/archives/map"), "MAP");
         viewPager.setAdapter(adapter);
     }
 

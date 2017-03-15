@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "19.1.0"
+    buildToolsVersion "21.1.2"
 
     defaultConfig {
         applicationId "phalen.peter.archives"
@@ -10,6 +10,10 @@ android {
         targetSdkVersion 23
         versionCode 6
         versionName "1.3"
+
+        manifestPlaceholders = [onesignal_app_id: "*****",
+                                // Project number pulled from dashboard
+                                onesignal_google_project_number: "*****"]
 
 
     }
@@ -19,11 +23,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
+
+
 
 dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
-    compile 'com.parse.bolts:bolts-android:1.4.0'
-    compile 'com.parse:parse-android:1.13.0'
+
+    compile 'com.onesignal:OneSignal:3.+@aar'
+
+    // Required for OneSignal, even if you have added FCM.
+    compile 'com.google.android.gms:play-services-gcm:+'
+
+
 }
+
+
+

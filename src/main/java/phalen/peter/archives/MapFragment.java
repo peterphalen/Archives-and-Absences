@@ -23,7 +23,7 @@ public class MapFragment extends Fragment {
     private WebView mWebView;
     private boolean mIsWebViewAvailable;
     ProgressDialog progress;
-    private String mUrl = "https://joshbegley.com/archives/map";
+    private String mUrl = "****";
     /**
      * Creates a new fragment which loads the supplied url as soon as it can
      */
@@ -67,6 +67,7 @@ public class MapFragment extends Fragment {
         mIsWebViewAvailable = true;
         WebSettings settings = mWebView.getSettings();
         settings.setJavaScriptEnabled(true);
+        settings.setDomStorageEnabled(true);
 
 
         return mWebView;

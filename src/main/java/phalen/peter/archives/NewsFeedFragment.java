@@ -23,7 +23,7 @@ public class NewsFeedFragment extends Fragment {
     private WebView mWebView;
     private boolean mIsWebViewAvailable;
     ProgressDialog progress;
-    private String mUrl = "https://joshbegley.com/archives/feed";
+    private String mUrl = "****";
 
     /**
      * Creates a new fragment which loads the supplied url as soon as it can
@@ -47,6 +47,7 @@ public class NewsFeedFragment extends Fragment {
             mWebView.destroy();
         }
         mWebView = new WebView(getActivity());
+
         View myFragmentView = inflater.inflate(R.layout.news_feed_fragment, container, false);
         progress = ProgressDialog.show(getActivity(), "Loading", "Please wait...", true);
         mWebView.setWebViewClient(new InnerWebViewClient() {
@@ -62,10 +63,12 @@ public class NewsFeedFragment extends Fragment {
 
 
         }); // forces it to open in app
+
         mWebView.loadUrl(mUrl);
         mIsWebViewAvailable = true;
         WebSettings settings = mWebView.getSettings();
         settings.setJavaScriptEnabled(true);
+        settings.setDomStorageEnabled(true);
 
         return mWebView;
     }

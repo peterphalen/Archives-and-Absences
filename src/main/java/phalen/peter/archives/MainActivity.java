@@ -121,6 +121,9 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new MapFragment("javascript:window.location.reload( true )"), "MAP");
         //reset adapter
         viewPager.setAdapter(adapter);
+
+        setupTabIcons(); //this method is defined below
+
     }
 
     //this method is fired by the little question mark button defined in xml
@@ -145,13 +148,13 @@ public class MainActivity extends AppCompatActivity {
         tabNews.setText("Newsfeed");
         tabMap.setText("Map");
 
+
         //assign icons to the tabs
         tabNews.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_newsfeed, 0, 0);
         tabMap.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_map, 0, 0);
 
-        //set negative padding or the tabindiciators occlude the tab text
-        tabNews.setCompoundDrawablePadding(-12);
-        tabMap.setCompoundDrawablePadding(-12);
+        tabNews.setCompoundDrawablePadding(-20);
+        tabMap.setCompoundDrawablePadding(-20);
 
         //set these parameters to the tabs
         tabLayout.getTabAt(0).setCustomView(tabNews);
@@ -162,8 +165,8 @@ public class MainActivity extends AppCompatActivity {
     //this method sets up our custom viewpager
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new NewsFeedFragment("https://joshbegley.com/archives/feed"), "NEWSFEED"); //Custom website URLs
-        adapter.addFragment(new MapFragment("https://joshbegley.com/archives/map"), "MAP");
+        adapter.addFragment(new NewsFeedFragment("****"), "Newsfeed"); //Custom website URLs
+        adapter.addFragment(new MapFragment("****"), "Map");
         viewPager.setAdapter(adapter);
     }
 
